@@ -1,0 +1,357 @@
+{
+  "materials": [
+    {
+      "id": "empty",
+      "name": "Empty",
+      "description": "Empty space",
+      "state": "solid",
+      "density": 0.0,
+      "color": {
+        "r": 0, "g": 0, "b": 0, "a": 0,
+        "variation_count": 1
+      },
+      "is_gravity_affected": false
+    },
+    {
+      "id": "sand",
+      "name": "Sand",
+      "description": "Fine granular material",
+      "state": "powder",
+      "density": 2.5,
+      "viscosity": 1.0,
+      "hardness": 3.0,
+      "color": {
+        "r": 194, "g": 178, "b": 128, "a": 255,
+        "variation_count": 8
+      },
+      "thermal_conductivity": 0.3,
+      "specific_heat": 0.8,
+      "melting_point": 1700.0,
+      "melted_form": "glass",
+      "is_solid_ground": true,
+      "sinks_in_water": true
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "description": "Clear liquid",
+      "state": "liquid",
+      "density": 1.0,
+      "viscosity": 1.0,
+      "color": {
+        "r": 64, "g": 164, "b": 223, "a": 200,
+        "variation_count": 4
+      },
+      "thermal_conductivity": 0.6,
+      "specific_heat": 4.186,
+      "melting_point": 0.0,
+      "boiling_point": 100.0,
+      "freezing_point": 0.0,
+      "frozen_form": "ice",
+      "boiled_form": "steam",
+      "electrical_conductivity": 0.3,
+      "is_breathable": false
+    },
+    {
+      "id": "rock",
+      "name": "Rock",
+      "description": "Solid stone",
+      "state": "solid",
+      "density": 2.7,
+      "hardness": 8.0,
+      "color": {
+        "r": 128, "g": 128, "b": 128, "a": 255,
+        "variation_count": 6
+      },
+      "thermal_conductivity": 2.5,
+      "specific_heat": 0.84,
+      "melting_point": 1200.0,
+      "melted_form": "lava",
+      "is_solid_ground": true,
+      "is_gravity_affected": false
+    },
+    {
+      "id": "fire",
+      "name": "Fire",
+      "description": "Hot plasma",
+      "state": "plasma",
+      "density": 0.001,
+      "color": {
+        "r": 255, "g": 100, "b": 0, "a": 255,
+        "variation_count": 10
+      },
+      "thermal_conductivity": 0.1,
+      "ignition_point": 0.0,
+      "emits_light": true,
+      "light_radius": 5,
+      "light_intensity": 200,
+      "light_color": {
+        "r": 255, "g": 150, "b": 50, "a": 255
+      },
+      "is_gravity_affected": false
+    },
+    {
+      "id": "lava",
+      "name": "Lava",
+      "description": "Molten rock",
+      "state": "liquid",
+      "density": 2.5,
+      "viscosity": 100.0,
+      "color": {
+        "r": 255, "g": 80, "b": 0, "a": 255,
+        "variation_count": 5
+      },
+      "thermal_conductivity": 1.5,
+      "melting_point": 1200.0,
+      "boiling_point": 3000.0,
+      "frozen_form": "rock",
+      "emits_light": true,
+      "light_radius": 8,
+      "light_intensity": 255,
+      "light_color": {
+        "r": 255, "g": 100, "b": 0, "a": 255
+      },
+      "flammability": 1.0,
+      "sinks_in_water": true
+    },
+    {
+      "id": "wood",
+      "name": "Wood",
+      "description": "Organic material from trees",
+      "state": "solid",
+      "density": 0.6,
+      "hardness": 3.0,
+      "color": {
+        "r": 139, "g": 90, "b": 43, "a": 255,
+        "variation_count": 6
+      },
+      "thermal_conductivity": 0.15,
+      "specific_heat": 1.7,
+      "ignition_point": 300.0,
+      "flammability": 0.8,
+      "burned_form": "ash",
+      "floats_on_water": true,
+      "is_solid_ground": true
+    },
+    {
+      "id": "oil",
+      "name": "Oil",
+      "description": "Flammable liquid",
+      "state": "liquid",
+      "density": 0.8,
+      "viscosity": 5.0,
+      "color": {
+        "r": 50, "g": 50, "b": 50, "a": 220,
+        "variation_count": 3
+      },
+      "thermal_conductivity": 0.15,
+      "ignition_point": 200.0,
+      "flammability": 0.9,
+      "explosiveness": 0.3,
+      "burned_form": "smoke",
+      "floats_on_water": true
+    },
+    {
+      "id": "gunpowder",
+      "name": "Gunpowder",
+      "description": "Explosive powder",
+      "state": "powder",
+      "density": 1.7,
+      "color": {
+        "r": 60, "g": 60, "b": 60, "a": 255,
+        "variation_count": 4
+      },
+      "ignition_point": 150.0,
+      "flammability": 1.0,
+      "explosiveness": 0.95,
+      "sinks_in_water": true
+    },
+    {
+      "id": "acid",
+      "name": "Acid",
+      "description": "Corrosive liquid",
+      "state": "liquid",
+      "density": 1.2,
+      "viscosity": 2.0,
+      "color": {
+        "r": 150, "g": 255, "b": 0, "a": 200,
+        "variation_count": 3
+      },
+      "corrosiveness": 0.9,
+      "acidity": 1.0,
+      "emits_light": true,
+      "light_radius": 2,
+      "light_intensity": 100,
+      "light_color": {
+        "r": 150, "g": 255, "b": 0, "a": 255
+      },
+      "sinks_in_water": true
+    },
+    {
+      "id": "ice",
+      "name": "Ice",
+      "description": "Frozen water",
+      "state": "solid",
+      "density": 0.92,
+      "hardness": 5.0,
+      "color": {
+        "r": 200, "g": 230, "b": 255, "a": 255,
+        "variation_count": 5
+      },
+      "thermal_conductivity": 2.2,
+      "specific_heat": 2.09,
+      "melting_point": 0.0,
+      "melted_form": "water",
+      "is_solid_ground": true,
+      "floats_on_water": true
+    },
+    {
+      "id": "steam",
+      "name": "Steam",
+      "description": "Water vapor",
+      "state": "gas",
+      "density": 0.0006,
+      "color": {
+        "r": 200, "g": 200, "b": 200, "a": 100,
+        "variation_count": 3
+      },
+      "thermal_conductivity": 0.025,
+      "boiling_point": 100.0,
+      "freezing_point": 100.0,
+      "frozen_form": "water",
+      "is_gravity_affected": false,
+      "is_breathable": true
+    },
+    {
+      "id": "glass",
+      "name": "Glass",
+      "description": "Transparent solid",
+      "state": "solid",
+      "density": 2.5,
+      "hardness": 6.0,
+      "color": {
+        "r": 200, "g": 220, "b": 255, "a": 150,
+        "variation_count": 2
+      },
+      "thermal_conductivity": 1.0,
+      "melting_point": 1400.0,
+      "melted_form": "lava",
+      "is_solid_ground": true,
+      "is_gravity_affected": false
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "description": "Precious metal",
+      "state": "solid",
+      "density": 19.3,
+      "hardness": 2.5,
+      "color": {
+        "r": 255, "g": 215, "b": 0, "a": 255,
+        "variation_count": 3
+      },
+      "thermal_conductivity": 317.0,
+      "electrical_conductivity": 1.0,
+      "melting_point": 1064.0,
+      "melted_form": "molten_gold",
+      "is_solid_ground": true,
+      "is_gravity_affected": false
+    },
+    {
+      "id": "diamond",
+      "name": "Diamond",
+      "description": "Hardest natural material",
+      "state": "solid",
+      "density": 3.5,
+      "hardness": 10.0,
+      "color": {
+        "r": 185, "g": 242, "b": 255, "a": 255,
+        "variation_count": 2
+      },
+      "thermal_conductivity": 1000.0,
+      "melting_point": 3550.0,
+      "is_solid_ground": true,
+      "is_gravity_affected": false
+    },
+    {
+      "id": "ash",
+      "name": "Ash",
+      "description": "Burnt residue",
+      "state": "powder",
+      "density": 0.5,
+      "color": {
+        "r": 80, "g": 80, "b": 80, "a": 255,
+        "variation_count": 4
+      },
+      "thermal_conductivity": 0.1,
+      "floats_on_water": true
+    },
+    {
+      "id": "smoke",
+      "name": "Smoke",
+      "description": "Combustion byproduct",
+      "state": "gas",
+      "density": 0.001,
+      "color": {
+        "r": 60, "g": 60, "b": 60, "a": 150,
+        "variation_count": 5
+      },
+      "is_gravity_affected": false,
+      "is_breathable": false
+    },
+    {
+      "id": "poison",
+      "name": "Poison",
+      "description": "Toxic liquid",
+      "state": "liquid",
+      "density": 1.1,
+      "viscosity": 1.5,
+      "color": {
+        "r": 100, "g": 0, "b": 150, "a": 200,
+        "variation_count": 3
+      },
+      "toxicity": 1.0,
+      "emits_light": true,
+      "light_radius": 2,
+      "light_intensity": 80,
+      "light_color": {
+        "r": 150, "g": 0, "b": 200, "a": 255
+      },
+      "sinks_in_water": true
+    },
+    {
+      "id": "blood",
+      "name": "Blood",
+      "description": "Organic fluid",
+      "state": "liquid",
+      "density": 1.06,
+      "viscosity": 3.0,
+      "color": {
+        "r": 139, "g": 0, "b": 0, "a": 255,
+        "variation_count": 4
+      },
+      "flammability": 0.1,
+      "sinks_in_water": true
+    },
+    {
+      "id": "slime",
+      "name": "Slime",
+      "description": "Viscous organic material",
+      "state": "liquid",
+      "density": 1.2,
+      "viscosity": 50.0,
+      "color": {
+        "r": 0, "g": 200, "b": 0, "a": 220,
+        "variation_count": 3
+      },
+      "flammability": 0.2,
+      "emits_light": true,
+      "light_radius": 1,
+      "light_intensity": 50,
+      "light_color": {
+        "r": 0, "g": 255, "b": 0, "a": 255
+      },
+      "sinks_in_water": true
+    }
+  ]
+}

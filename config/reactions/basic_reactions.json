@@ -1,0 +1,266 @@
+{
+  "reactions": [
+    {
+      "id": "water_lava_steam",
+      "name": "Water + Lava = Steam + Rock",
+      "description": "Water cools lava into rock and produces steam",
+      "condition": {
+        "materials": ["water", "lava"],
+        "probability": 0.8
+      },
+      "result": {
+        "product_a": "steam",
+        "product_b": "rock",
+        "temperature_change": -200.0,
+        "energy_release": 50.0,
+        "triggers_chain": true,
+        "chain_reaction_id": "steam_explosion"
+      }
+    },
+    {
+      "id": "fire_wood_ash",
+      "name": "Fire + Wood = Fire + Ash",
+      "description": "Fire burns wood into ash",
+      "condition": {
+        "materials": ["fire", "wood"],
+        "min_temperature": 300.0,
+        "probability": 0.3
+      },
+      "result": {
+        "product_a": "fire",
+        "product_b": "ash",
+        "temperature_change": 100.0,
+        "energy_release": 20.0
+      }
+    },
+    {
+      "id": "fire_oil_explosion",
+      "name": "Fire + Oil = Explosion",
+      "description": "Fire ignites oil causing explosion",
+      "condition": {
+        "materials": ["fire", "oil"],
+        "probability": 0.9
+      },
+      "result": {
+        "product_a": "fire",
+        "product_b": "smoke",
+        "temperature_change": 500.0,
+        "energy_release": 200.0,
+        "triggers_chain": true,
+        "chain_reaction_id": "oil_fire"
+      }
+    },
+    {
+      "id": "fire_gunpowder_explosion",
+      "name": "Fire + Gunpowder = Massive Explosion",
+      "description": "Fire ignites gunpowder causing massive explosion",
+      "condition": {
+        "materials": ["fire", "gunpowder"],
+        "probability": 1.0
+      },
+      "result": {
+        "product_a": "fire",
+        "product_b": "smoke",
+        "temperature_change": 1000.0,
+        "energy_release": 500.0,
+        "triggers_chain": true,
+        "chain_reaction_id": "gunpowder_explosion"
+      }
+    },
+    {
+      "id": "acid_rock_dissolve",
+      "name": "Acid + Rock = Empty",
+      "description": "Acid dissolves rock",
+      "condition": {
+        "materials": ["acid", "rock"],
+        "probability": 0.5
+      },
+      "result": {
+        "product_a": "empty",
+        "product_b": "empty",
+        "temperature_change": 10.0,
+        "energy_release": 5.0
+      }
+    },
+    {
+      "id": "acid_wood_dissolve",
+      "name": "Acid + Wood = Empty",
+      "description": "Acid dissolves wood",
+      "condition": {
+        "materials": ["acid", "wood"],
+        "probability": 0.7
+      },
+      "result": {
+        "product_a": "empty",
+        "product_b": "empty",
+        "temperature_change": 15.0,
+        "energy_release": 8.0
+      }
+    },
+    {
+      "id": "lava_wood_fire",
+      "name": "Lava + Wood = Fire",
+      "description": "Lava ignites wood",
+      "condition": {
+        "materials": ["lava", "wood"],
+        "probability": 0.9
+      },
+      "result": {
+        "product_a": "lava",
+        "product_b": "fire",
+        "temperature_change": -50.0,
+        "energy_release": 30.0
+      }
+    },
+    {
+      "id": "lava_oil_fire",
+      "name": "Lava + Oil = Fire",
+      "description": "Lava ignites oil",
+      "condition": {
+        "materials": ["lava", "oil"],
+        "probability": 1.0
+      },
+      "result": {
+        "product_a": "lava",
+        "product_b": "fire",
+        "temperature_change": 100.0,
+        "energy_release": 100.0,
+        "triggers_chain": true,
+        "chain_reaction_id": "oil_fire"
+      }
+    },
+    {
+      "id": "lava_gunpowder_explosion",
+      "name": "Lava + Gunpowder = Explosion",
+      "description": "Lava ignites gunpowder",
+      "condition": {
+        "materials": ["lava", "gunpowder"],
+        "probability": 1.0
+      },
+      "result": {
+        "product_a": "lava",
+        "product_b": "fire",
+        "temperature_change": 500.0,
+        "energy_release": 400.0,
+        "triggers_chain": true,
+        "chain_reaction_id": "gunpowder_explosion"
+      }
+    },
+    {
+      "id": "water_fire_steam",
+      "name": "Water + Fire = Steam",
+      "description": "Water extinguishes fire",
+      "condition": {
+        "materials": ["water", "fire"],
+        "probability": 0.6
+      },
+      "result": {
+        "product_a": "steam",
+        "product_b": "empty",
+        "temperature_change": -100.0,
+        "energy_release": 10.0
+      }
+    },
+    {
+      "id": "ice_fire_water",
+      "name": "Ice + Fire = Water",
+      "description": "Fire melts ice",
+      "condition": {
+        "materials": ["ice", "fire"],
+        "probability": 0.8
+      },
+      "result": {
+        "product_a": "water",
+        "product_b": "empty",
+        "temperature_change": 50.0,
+        "energy_release": 15.0
+      }
+    },
+    {
+      "id": "poison_water_spread",
+      "name": "Poison + Water = Poison",
+      "description": "Poison contaminates water",
+      "condition": {
+        "materials": ["poison", "water"],
+        "probability": 0.4
+      },
+      "result": {
+        "product_a": "poison",
+        "product_b": "poison",
+        "temperature_change": 0.0,
+        "energy_release": 0.0
+      }
+    }
+  ],
+  "chain_reactions": {
+    "steam_explosion": [
+      {
+        "id": "steam_expand_1",
+        "condition": {
+          "materials": ["steam", "any"],
+          "probability": 0.7
+        },
+        "result": {
+          "product_a": "steam",
+          "product_b": "empty",
+          "energy_release": 10.0
+        }
+      },
+      {
+        "id": "steam_expand_2",
+        "condition": {
+          "materials": ["steam", "any"],
+          "probability": 0.5
+        },
+        "result": {
+          "product_a": "steam",
+          "product_b": "empty",
+          "energy_release": 5.0
+        }
+      }
+    ],
+    "oil_fire": [
+      {
+        "id": "oil_spread_fire",
+        "condition": {
+          "materials": ["fire", "oil"],
+          "probability": 0.8
+        },
+        "result": {
+          "product_a": "fire",
+          "product_b": "fire",
+          "temperature_change": 200.0,
+          "energy_release": 50.0
+        }
+      }
+    ],
+    "gunpowder_explosion": [
+      {
+        "id": "gunpowder_chain_1",
+        "condition": {
+          "materials": ["fire", "gunpowder"],
+          "probability": 1.0
+        },
+        "result": {
+          "product_a": "fire",
+          "product_b": "fire",
+          "temperature_change": 300.0,
+          "energy_release": 100.0
+        }
+      },
+      {
+        "id": "gunpowder_chain_2",
+        "condition": {
+          "materials": ["fire", "gunpowder"],
+          "probability": 1.0
+        },
+        "result": {
+          "product_a": "fire",
+          "product_b": "fire",
+          "temperature_change": 300.0,
+          "energy_release": 100.0
+        }
+      }
+    ]
+  }
+}
